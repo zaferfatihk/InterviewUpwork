@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.yourcompany.yourproject.dao.UserRepository;
 import org.yourcompany.yourproject.model.User;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -44,13 +46,13 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    void create(@RequestBody User user) {
+    void create(@Valid @RequestBody User user) {
         userRepository.save(user);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    void update(@RequestBody User user, @PathVariable Long id) {
+    void update(@Valid @RequestBody User user, @PathVariable Long id) {
         userRepository.update(user, id);
     }
 

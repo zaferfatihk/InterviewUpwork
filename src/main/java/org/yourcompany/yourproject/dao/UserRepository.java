@@ -34,7 +34,7 @@ public class UserRepository {
         if (existingUser.isPresent()) {
             User userToUpdate = existingUser.get();
             users.remove(userToUpdate);
-            users.add(new User(id, user.name(), user.surname(), user.age()));
+            users.add(new User(id, user.name(), user.surname(), user.age(), user.height()));
         }
     }
 
@@ -44,7 +44,8 @@ public class UserRepository {
 
     @PostConstruct
     private void init() {
-        users.add(new User(1L, "John", "Doe", 25));
-        users.add(new User(2L,"Mark", "Sow", 12));
+        users.add(new User(1L, "John", "Doe", 25, 191));
+        users.add(new User(2L,"Mark", "Sow", 12, 185));
+        users.add(new User(3L,"Jerk", "How", 11, 195));
     }
 }
