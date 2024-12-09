@@ -1,6 +1,5 @@
 package org.yourcompany.yourproject.rest;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -27,15 +26,10 @@ public class UserController {
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }   
-
-    @GetMapping("")
-    List<User> findAll() {
-        return userRepository.findAllUsers();
-    }   
  
     @GetMapping("/{id}")
     User findById(@PathVariable Long id) {
-        Optional<User> user = userRepository.findUserById(id);
+        Optional<User> user = userRepository.findById(id);
 
         if (user.isPresent()) {
             return user.get();
@@ -53,12 +47,12 @@ public class UserController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     void update(@Valid @RequestBody User user, @PathVariable Long id) {
-        userRepository.update(user, id);
+        userRepository.save(user);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
-        userRepository.delete(id);
+        userRepository.deleteById(id);
     }
 }

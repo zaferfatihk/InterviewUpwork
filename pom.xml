@@ -77,6 +77,18 @@
 			<artifactId>guava</artifactId>
 			<version>33.3.1-jre</version>
 		</dependency>
+
+		 <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-docker-compose</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -84,9 +96,6 @@
 			<resource>
 			<directory>src/main/resources</directory>
 			<targetPath>${project.build.outputDirectory}</targetPath>
-			<includes>
-				<include>application.properties</include>
-			</includes>
 			</resource>
 		</resources>
 		<plugins>
