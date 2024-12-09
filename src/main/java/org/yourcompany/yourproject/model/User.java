@@ -1,18 +1,32 @@
 package org.yourcompany.yourproject.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Version;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Positive;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Version;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
-public record User(@Id Long id, @NotEmpty String name, String surname, int age, @Positive Integer height, @Version Long version) {
-    public User {
-        if (age < 0) {
-            throw new IllegalArgumentException("Age must be greater than or equal to 0");
-        }
-        if (age > 100) {
-            throw new IllegalArgumentException("Age must be less than or equal to 100");
-        }
-    }
+@Data
+@RequiredArgsConstructor
+@Entity
+@Table(name = "users")
+public class User{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private Long id;
+
+    private String name;
+
+    private String surname;
+
+    private int age;
+
+    private String height;
+
+    @Version
+    private Integer version;
 }

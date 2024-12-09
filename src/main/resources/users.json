@@ -1,23 +1,23 @@
 [
-    {
-        "id": 1,
+    { 
         "name": "John",
         "surname": "Doe",
         "age": 30,
-        "height": 180
+        "height": 180,
+        "version": 1
     },
-    {
-        "id": 2,
+    { 
         "name": "Jane",
         "surname": "Doe",
         "age": 25,
-        "height": 170
+        "height": 170,
+        "version": 1
     },
-    {
-        "id": 3,
+    { 
         "name": "Mark",
         "surname": "Smith",
         "age": 35,
-        "height": 175
+        "height": 175,
+        "version": 1
     }
 ]
