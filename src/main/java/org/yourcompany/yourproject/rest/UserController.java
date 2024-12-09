@@ -1,5 +1,6 @@
 package org.yourcompany.yourproject.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,12 @@ public class UserController {
 
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
-    }   
+    }
+
+    @GetMapping("")
+    List<User> findAll() {
+        return userRepository.findAll();
+    }
  
     @GetMapping("/{id}")
     User findById(@PathVariable Long id) {
@@ -46,7 +52,7 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    void update(@Valid @RequestBody User user, @PathVariable Long id) {
+    void update(@Valid @RequestBody User user, @PathVariable Long id) throws Exception{
         userRepository.save(user);
     }
 
