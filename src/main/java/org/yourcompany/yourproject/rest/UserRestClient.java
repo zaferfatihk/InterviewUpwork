@@ -1,4 +1,4 @@
-package org.yourcompany.yourproject.model;
+package org.yourcompany.yourproject.rest;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
-import org.yourcompany.yourproject.rest.UserExternal;
+import org.yourcompany.yourproject.model.UserExternal;
 
 @Component
 public class UserRestClient {
