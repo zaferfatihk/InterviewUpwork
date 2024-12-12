@@ -61,7 +61,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Long id) {
-        if(userRepository.findById(id).isEmpty()){
+        if(userRepository.findById(id) == null) {
             throw new UserNotFoundException("User not found");
         } else {
             userRepository.deleteById(id);
